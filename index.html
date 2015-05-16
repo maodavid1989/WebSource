@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<title>My Resume</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+
+			<link rel="stylesheet" href="css/main.css" />
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+	</head>    
+    
+        <nav id="nav">
+            <ul class="container">
+        	<li><a href="index.html">Home</a></li>
+			<li><a href="profolio.html">MyPortfolio</a></li>
+            <li><a href="works.html">works</a></li>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<li><a href="https://www.facebook.com/profile.php?id=100000084530548" class="icon fa-facebook" target="_blank">
+				<span class="label">Facebook</span></a></li>
+			<li><a href="https://www.linkedin.com/profile/view?id=274595462&trk=nav_responsive_tab_profile_pic" class="icon fa-linkedin" target="_blank">
+				<span class="label">LinkedIn</span></a></li>
+			<li><a href="https://github.com/maodavid1989" class="icon fa-github" target="_blank">
+				<span class="label">Github</span></a></li>
+            </ul>
+		</nav>
+            
+                    
+	<body> 
+        <!--<div id="ajax">-->  
+				<div class="wrapper style1 first">
+					<article class="container" id="top">
+						<div class="row">
+							<div class="4u">
+								<span class="image fit"><img src="images/MyPhoto.png" alt="" /></span>
+							</div>
+							<div class="8u">
+								<header>
+									<h1>Hi. I'm <strong>David Mao</strong>.</h1>
+								</header>
+								<p>And this is My Resume, Graduate from <strong>Chung-Hsing University</strong></p>
+									<a href="mailto:maodavid1989@hotmail.com"><b>Write me an email : maodavid1989@hotmail.com</b></a>																								  
+							</div>                
+						</div>
+					  
+					<div class="alignLeft">
+						<ul>
+							<strong>
+                            <li>I am 26 years old , working experience for 3 years, familiar with matlab, java, have developed three project before,each project...</li>
+							<li></li>
+							<li></li>
+                            </strong>
+                        </ul>
+					</div>						                							
+					</article>
+				</div> 
+            <!--</div>-->  
+	</body>
+</html>
+
+    <script>
+        $(document).ready(function(e) {
+		
+			//20150514 pushstate 後端用
+            //$("a").click(function(e){
+            //  e.preventDefault();
+            //  var url = $(this).attr("href");
+            // history.pushState({page:url},url, url);
+            //  updateSite(url);
+            //});
+        });
+        
+        $(window).bind("popstate", function(e){
+            var state = event.state;
+            if(state){
+                updateSite(state.page);
+            }else{
+                updateSite("index.jsp");
+            }
+        });
+        
+        function updateSite(currentPage){
+            $.get(currentPage, function(data) {
+                $('#ajax').html(data);
+            });
+        }
+
+    </script>
+    
